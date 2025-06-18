@@ -1,7 +1,7 @@
 provider "google" {
-	credentials =file("./ferrous-octane-455420-n9-4bfcfb812b37.json")
-	project = "ferrous-octane-455420-n9"
-	region = "us-central1"
+  credentials = file("./ferrous-octane-455420-n9-4bfcfb812b37.json")
+  project     = "ferrous-octane-455420-n9"
+  region      = "us-central1"
 }
 
 # resource "google_project" "my_project-in-a-folder"{
@@ -12,10 +12,10 @@ provider "google" {
 
 # creating a bucket
 module "google_storage_bucket" {
-	source = "./cloudbucket"
-	force_destroy = var.force_destroy
-	name = var.name
-	location = var.location
+  source        = "./cloudbucket"
+  force_destroy = var.force_destroy
+  name          = var.name
+  location      = var.location
 }
 
 # resource "google_storage_bucket" "my_bucket"{
@@ -48,13 +48,13 @@ module "google_storage_bucket" {
 
 
 
-module "artifact-reg-repo"{
-	source = "./artifactregistry"
-	project_id = var.project_id
-  	location = var.location
-  	repository_id = var.repository_id
-  	repository_description = var.repository_description
-  	format = var.format
+module "artifact-reg-repo" {
+  source                 = "./artifactregistry"
+  project_id             = var.project_id
+  location               = var.location
+  repository_id          = var.repository_id
+  repository_description = var.repository_description
+  format                 = var.format
 }
 
 # binding artifact registry role to the SA account 
@@ -86,22 +86,22 @@ module "artifact-reg-repo"{
 # 	vm_image {
 # 		image_family = "tf-latest-cpu"
 # 		project      = "deeplearning-platform-release"
-	  
+
 # 	}
 # }
 
-resource "google_pubsub_topic" "topic"{
-	name = "anu-pubsub-topic"
+resource "google_pubsub_topic" "topic" {
+  name = "anu-pubsub-topic"
 }
 
-data "google_storage_project_service_account" "gcs_account"{
-	project = "ferrous-octane-455420-n9"
+data "google_storage_project_service_account" "gcs_account" {
+  project = "ferrous-octane-455420-n9"
 }
 
-resource "google_pubsub_topic_iam_binding" "publisher"{
-	topic = google_pubsub_topic.topic.id
-	role = "roles/pubsub.publisher"
-	members = ["serviceAccount:${data.google_storage_project_service_account.gcs_account.email_address}"]
+resource "google_pubsub_topic_iam_binding" "publisher" {
+  topic   = google_pubsub_topic.topic.id
+  role    = "roles/pubsub.publisher"
+  members = ["serviceAccount:${data.google_storage_project_service_account.gcs_account.email_address}"]
 }
 
 

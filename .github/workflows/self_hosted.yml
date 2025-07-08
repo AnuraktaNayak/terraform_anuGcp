@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: anu-self-hosted
+name: anu1-self-hosted
 
 # Controls when the workflow will run
 on:

@@ -1,7 +1,7 @@
 resource "google_storage_bucket" "anu-bucket" {
-  name          = "test-anu-bucket"
-  location      = "US"
-  project       = "bubbly-reducer-465214-m7"
+  name          = var.bucket_name
+  location      = var.location
+  project       = var.project
   force_destroy = true
 
 

@@ -1,4 +1,4 @@
-# force_destroy = true
-# project       = "bubbly-reducer-465214-m7"
-# location      = "US"
-# bucket_name   = "test-anunayak-bucket"
+force_destroy = true
+project       = "bubbly-reducer-465214-m7"
+location      = "US"
+bucket_name   = "buckettest_anurakta8123"

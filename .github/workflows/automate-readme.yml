@@ -1,1 +1,24 @@
+name: Generate terraform docs
+on:
+  - pull_request
 
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3       #checkout the repository code
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+
+    - name: Install terraform docs
+      uses: terraform-docs/gh-actions@main         #Action to generate terraform documentation
+      with:
+        working-dir: .
+        output-file: README.md
+        output-method: inject
+        git-push: "true"
+
+
+
+
+#refer documentation link:   https://terraform-docs.io/how-to/github-action/

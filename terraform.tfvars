@@ -1,4 +1,4 @@
 force_destroy = true
-project          = "bubbly-reducer-465214-m7"
-location         = "US"
-bucket_name        = "test-anu-bucket"
+project       = "bubbly-reducer-465214-m7"
+location      = "US"
+bucket_name   = "test-anu-bucket"

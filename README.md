@@ -46,5 +46,9 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_bucket_location"></a> [bucket\_location](#output\_bucket\_location) | The location of the created storage bucket |
+| <a name="output_bucket_name"></a> [bucket\_name](#output\_bucket\_name) | The name of the created storage bucket |
+| <a name="output_bucket_url"></a> [bucket\_url](#output\_bucket\_url) | The URL of the created storage bucket |
 <!-- END_TF_DOCS -->

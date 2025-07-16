@@ -7,7 +7,7 @@ resource "google_storage_bucket" "anu123-bucket" {
 }
 
 resource "google_sql_database_instance" "anu-cloudsql" {
-  name             = var.pg_db_name
+  name             = var.pg_db_instance_name
   database_version = var.pg_version
   region           = var.pg_region
   project          = var.project
@@ -15,10 +15,9 @@ resource "google_sql_database_instance" "anu-cloudsql" {
   settings {
     tier = "db-f1-micro"
   }
+}
 
-
-  resource "google_sql_database" "database" {
-    name     = "anu-springboot-database"
-    instance = google_sql_database_instance.anu-cloudsql.name
-  }
+resource "google_sql_database" "anu_database" {
+  name     = var.pg_db_name
+  instance = google_sql_database_instance.anu-cloudsql.name
 }

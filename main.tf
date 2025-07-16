@@ -4,8 +4,9 @@ resource "google_storage_bucket" "anu123-bucket" {
   project       = var.project
   force_destroy = var.force_destroy
 
+}
 
-  resource "google_sql_database_instance" "anu-cloudsql" {
+ resource "google_sql_database_instance" "anu-cloudsql" {
     name             = var.pg_db_name
     database_version = var.pg_version
     region           = var.pg_region
@@ -16,6 +17,3 @@ resource "google_storage_bucket" "anu123-bucket" {
       tier = "db-f1-micro"
     }
   }
-
-
-}

@@ -15,4 +15,10 @@ resource "google_sql_database_instance" "anu-cloudsql" {
   settings {
     tier = "db-f1-micro"
   }
+
+
+resource "google_sql_database" "database" {
+  name     = "anu-springboot-database"
+  instance = google_sql_database_instance.anu-cloudsql.name
+}
 }

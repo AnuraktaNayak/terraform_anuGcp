@@ -18,9 +18,9 @@ variable "force_destroy" {
   description = "Whether to force destroy the bucket when deleting (allows deletion of non-empty buckets)"
 }
 
-variable "pg_db_name" {
+variable "pg_db_instance_name" {
   type        = string
-  description = "pg_sql database for the springboot application"
+  description = "pg_sql database instance for the springboot application"
 }
 
 variable "pg_version" {
@@ -32,6 +32,13 @@ variable "pg_region" {
   type        = string
   description = "pg_sql database region in which it is created"
 }
+
+variable "pg_db_name" {
+  type        = string
+  description = "pg_sql database name in which it is created"
+}
+
+
 
 
 

@@ -17,8 +17,8 @@ resource "google_sql_database_instance" "anu-cloudsql" {
   }
 
 
-resource "google_sql_database" "database" {
-  name     = "anu-springboot-database"
-  instance = google_sql_database_instance.anu-cloudsql.name
-}
+  resource "google_sql_database" "database" {
+    name     = "anu-springboot-database"
+    instance = google_sql_database_instance.anu-cloudsql.name
+  }
 }

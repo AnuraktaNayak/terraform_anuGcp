@@ -10,6 +10,7 @@ resource "google_sql_database_instance" "anu-cloudsql" {
   name             = var.pg_db_name
   database_version = var.pg_version
   region           = var.pg_region
+  project          = var.project
 
   settings {
     # Second-generation instance tiers are based on the machine

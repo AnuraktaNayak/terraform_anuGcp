@@ -32,4 +32,5 @@ resource "google_sql_user" "user" {
   name     = "user123"
   instance = google_sql_database_instance.anu-cloudsql.name
   password = random_password.pwd.result
+  project  = var.project
 }

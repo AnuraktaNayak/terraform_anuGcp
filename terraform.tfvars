@@ -8,5 +8,7 @@ pg_version          = "POSTGRES_15"
 pg_region           = "us-central1"
 
 pg_db_name = "anu-springboot-database"
+pg_region  = "us-central1"
+project       = "bubbly-reducer-465214-m7"
 
 

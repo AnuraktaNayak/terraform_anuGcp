@@ -27,6 +27,7 @@ resource "google_sql_user" "anu_user" {
   instance = google_sql_database_instance.anu-cloudsql.name
   host     = "me.com"
   password = "test123"
+  project  = var.project
 }
 # resource "random_password" "pwd" {
 #   length  = 16

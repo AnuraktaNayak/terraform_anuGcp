@@ -28,14 +28,21 @@ resource "google_sql_user" "anu_user" {
   password = "test123"
   project  = var.project
 }
-# resource "random_password" "pwd" {
-#   length  = 16
-#   special = false
-# }
 
-# resource "google_sql_user" "user" {
-#   name     = "user123"
-#   instance = google_sql_database_instance.anu-cloudsql.name
-#   password = random_password.pwd.result
-#   project  = var.project
-# }
+
+resource "google_secret_manager_secret" "db_password_secret" {
+  secret_id = "db_password_secret"
+
+  labels = {
+    secretmanager = "db_password"
+  }
+
+  replication {
+    user_managed {
+      replicas {
+        location = "us-central1"
+      }
+    }
+  }
+}
+

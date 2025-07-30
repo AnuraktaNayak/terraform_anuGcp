@@ -37,7 +37,7 @@ variable "pg_db_name" {
   type        = string
   description = "pg_sql database name in which it is created"
 
-  
+
 }
 
 

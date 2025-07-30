@@ -20,6 +20,7 @@ resource "google_sql_database_instance" "anu-cloudsql" {
 resource "google_sql_database" "anu_database" {
   name     = var.pg_db_name
   instance = google_sql_database_instance.anu-cloudsql.name
+  project  = var.project
 }
 
 # resource "random_password" "pwd" {

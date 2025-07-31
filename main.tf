@@ -52,5 +52,6 @@ resource "google_artifact_registry_repository" "anu-repo" {
   repository_id = "anu-artifact-repository"
   description   = "dockerimage repository"
   format        = "DOCKER"
+  project       = var.project
 }
 

@@ -36,7 +36,8 @@ resource "google_secret_manager_secret" "db_password_secret" {
 
   labels = {
     secretmanager = "db_password"
-  }`
+
+  }
 
   replication {
     user_managed {

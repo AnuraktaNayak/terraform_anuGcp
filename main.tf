@@ -22,21 +22,21 @@ resource "google_sql_database" "anu_database" {
   instance = google_sql_database_instance.anu-cloudsql.name
   project  = var.project
 }
-resource "google_sql_user" "anu_user" {
-  name     = "test123"
-  instance = google_sql_database_instance.anu-cloudsql.name
-  password = "test123"
-  project  = var.project
-}
+# resource "google_sql_user" "anu_user" {
+#   name     = "test123"
+#   instance = google_sql_database_instance.anu-cloudsql.name
+#   password = "test123"
+#   project  = var.project
+# }
 
 
 resource "google_secret_manager_secret" "db_password_secret" {
-  secret_id = "db_password_secret-1"
+  secret_id = "anu_db_password_secret-1"
   project   = var.project
 
   labels = {
     secretmanager = "db_password"
-  }
+  }`
 
   replication {
     user_managed {
@@ -46,6 +46,14 @@ resource "google_secret_manager_secret" "db_password_secret" {
     }
   }
 }
+
+  resource "google_secret_manager_secret_version" "my_secret_version" {
+    secret      = google_secret_manager_secret.db_password_secret
+    secret_data = "anu-super-secret-value" # For demonstration; use sensitive input in production
+  }
+
+
+
 
 resource "google_artifact_registry_repository" "anu-repo" {
   location      = "us-central1"

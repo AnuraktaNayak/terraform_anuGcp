@@ -31,7 +31,7 @@ resource "google_sql_user" "anu_user" {
 
 
 resource "google_secret_manager_secret" "db_password_secret" {
-  secret_id = "db_password_secret"
+  secret_id = "db_password_secret-1"
   project   = var.project
 
   labels = {

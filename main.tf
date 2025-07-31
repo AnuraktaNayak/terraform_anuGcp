@@ -48,10 +48,10 @@ resource "google_secret_manager_secret" "db_password_secret" {
   }
 }
 
-  resource "google_secret_manager_secret_version" "my_secret_version" {
-    secret      = google_secret_manager_secret.db_password_secret
-    secret_data = "anu-super-secret-value" # For demonstration; use sensitive input in production
-  }
+resource "google_secret_manager_secret_version" "my_secret_version" {
+  secret      = google_secret_manager_secret.db_password_secret
+  secret_data = "anu-super-secret-value" # For demonstration; use sensitive input in production
+}
 
 
 
